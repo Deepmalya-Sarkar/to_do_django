@@ -1,0 +1,17 @@
+{% extends 'to_do/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="col-md-8">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Delete</legend>
+                <h4>Are you sure you want to delete {{post.title}}?</h4>
+            </fieldset>
+            
+            <input type="submit" class="btn btn-danger" value="Confirm">
+            <a href="{% url 'posts:user_posts_detail' pk=post.pk %}" class="btn btn-primary">Cancel</a>
+        </form>
+        
+    </div>
+{% endblock content %}

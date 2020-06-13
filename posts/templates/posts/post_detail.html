@@ -1,0 +1,13 @@
+{% extends 'to_do/base.html' %}
+
+{% block content %}
+
+       <h3>{{post.title}}</h3><hr>
+       <h5>{{post.created_on}}</h5>
+       
+
+       <a href="{% url 'posts:user_posts_update' pk=post.pk %}" class="btn btn-primary">Update</a>
+       <a href="{% url 'posts:user_posts_delete' pk=post.pk %}" class="btn btn-danger">Delete</a>
+        
+{% endblock content %}
+    

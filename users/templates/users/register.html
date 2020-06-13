@@ -1,0 +1,25 @@
+{% extends 'to_do/base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+    <div class="col-md-8">
+    
+    
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Register</legend>
+            {{u_form|crispy}}
+            {{p_form|crispy}}
+        </fieldset>
+        <input type="submit" class="btn btn-primary" value="submit">
+        <small class="text-muted ml-2">Already have an account?
+            <a href="{% url 'login' %}">Log In Here</a></small>
+    </form>
+
+        
+            
+    </div>
+{% endblock content %}
+    

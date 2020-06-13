@@ -1,0 +1,17 @@
+{% extends 'to_do/base.html' %}
+
+{% block content %}
+    <h1 class="border-bottom">These are your posts {{view.kwargs.username}}</h1>
+    
+    {% for post in posts  %}
+        
+        {% if post.complete %}
+           <strike><a href="{% url 'posts:user_posts_detail' pk=post.pk %}">{{post.title}}</a><br><hr></strike> 
+        {% else %}
+            
+       <a href="{% url 'posts:user_posts_detail' pk=post.pk %}">{{post.title}}</a><br><hr>
+       {% endif %}
+    {% endfor %}
+        
+{% endblock content %}
+    
